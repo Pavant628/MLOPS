@@ -1,0 +1,28 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/heart-disease.csv
+      hash: md5
+      md5: 92efeb80833382750517f59809d53f48
+      size: 11775
+    - path: src/train.py
+      hash: md5
+      md5: 82d92d232ba7084633f02322369a7bbb
+      size: 1888
+    params:
+      params.yaml:
+        random_forest:
+          n_estimators: 200
+          max_depth: 5
+          random_state: 42
+    outs:
+    - path: metrics/metrics.json
+      hash: md5
+      md5: bb967e1aea749bbb54d8868340b82e76
+      size: 150
+    - path: models/random_forest.pkl
+      hash: md5
+      md5: c6e33fdb15fc0d7e24c6e8f61185bad8
+      size: 765113

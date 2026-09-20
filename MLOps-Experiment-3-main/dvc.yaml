@@ -1,0 +1,12 @@
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - data/heart-disease.csv
+    params:
+      - random_forest
+    outs:
+      - models/random_forest.pkl
+    metrics:
+      - metrics/metrics.json
